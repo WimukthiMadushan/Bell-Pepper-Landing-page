@@ -12,7 +12,7 @@ const ClickEffect = () => {
 
       setTimeout(() => {
         ripple.remove();
-      }, 200); // match animation duration
+      }, 600); // match animation duration
     };
 
     window.addEventListener("click", handleClick);
