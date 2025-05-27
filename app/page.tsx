@@ -3,7 +3,11 @@ import { Button } from "@/components/ui/button";
 import React, { useState } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Bot, Droplets, Network, Leaf, BarChart3, Shield, ArrowRight, CheckCircle, CloudRain, Bell, Layers, Zap, Radio, Minus, Plus } from "lucide-react";
+import { Bot, Droplets, Network, Leaf, BarChart3, ArrowRight, CheckCircle, CloudRain, Bell, Layers, Zap, Radio, Minus, Plus } from "lucide-react";
+import Hero from "./Images/Hero.jpg"
+import WT from "./Images/WaterTank.jpg"
+import PH from "./Images/PH.jpg"
+import Image from "next/image";
 
 export default function Home() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
@@ -51,7 +55,7 @@ export default function Home() {
       <nav className="bg-white/80 backdrop-blur-md border-b border-green-100 sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
-            <div className="flex items-center space-x-2">
+            <div className="flex items-center space-x-2 cursor-pointer">
               <Leaf className="h-8 w-8 text-green-600" />
               <span className="text-xl font-bold text-gray-900">Power Green</span>
             </div>
@@ -73,10 +77,10 @@ export default function Home() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-8">
               <div className="space-y-4">
-                <Badge variant="outline" className="border-green-200 text-green-700 bg-green-50">
+                <Badge variant="outline" className="border-green-200 text-green-700 bg-green-50 cursor-pointer">
                   🌶️ Smart Agriculture Revolution
                 </Badge>
-                <h1 className="text-4xl lg:text-6xl font-bold text-gray-900 leading-tight">
+                <h1 className="text-4xl lg:text-6xl font-bold text-gray-900 leading-tight cursor-pointer">
                   Perfect Bell Pepper
                   <span className="text-green-600"> Cultivation</span>
                   <br />
@@ -89,20 +93,20 @@ export default function Home() {
                 </p>
               </div>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" className="bg-green-600 hover:bg-green-700 text-lg px-8">
+                <Button size="lg" className="bg-green-600 hover:bg-green-700 text-lg px-8 cursor-pointer">
                   Start Growing Smarter
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
-                <Button size="lg" variant="outline" className="text-lg px-8 border-gray-300 hover:border-green-300">
+                <Button size="lg" variant="outline" className="text-lg px-8 border-gray-300 hover:border-green-300 cursor-pointer">
                   Watch Demo
                 </Button>
               </div>
               <div className="flex items-center space-x-8 text-sm text-gray-500">
-                <div className="flex items-center space-x-2">
+                <div className="flex items-center space-x-2 cursor-pointer">
                   <CheckCircle className="h-4 w-4 text-green-500" />
                   <span>Real-time pH monitoring</span>
                 </div>
-                <div className="flex items-center space-x-2">
+                <div className="flex items-center space-x-2 cursor-pointer">
                   <CheckCircle className="h-4 w-4 text-green-500" />
                   <span>Multi-tank water system</span>
                 </div>
@@ -110,10 +114,10 @@ export default function Home() {
             </div>
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-tr from-green-400 to-blue-500 rounded-2xl blur-3xl opacity-20" />
-              <img 
-                src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=600&h=600&fit=crop" 
+              <Image
+                src={Hero}
                 alt="Line-following robot with arms"
-                className="relative rounded-2xl shadow-2xl w-full max-w-lg mx-auto"
+                className="relative rounded-2xl shadow-2xl w-full max-w-lg mx-auto h-full object-cover"
               />
             </div>
           </div>
@@ -124,7 +128,7 @@ export default function Home() {
       <section id="features" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center space-y-4 mb-16">
-            <Badge variant="outline" className="border-blue-200 text-blue-700 bg-blue-50">
+            <Badge variant="outline" className="border-blue-200 text-blue-700 bg-blue-50 cursor-pointer">
               🚀 Advanced Technology
             </Badge>
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900">
@@ -144,15 +148,15 @@ export default function Home() {
                 <div className="w-12 h-12 bg-green-600 rounded-xl flex items-center justify-center mb-4">
                   <Bot className="h-6 w-6 text-white" />
                 </div>
-                <CardTitle className="text-xl text-gray-900">Line-Following Robot</CardTitle>
+                <CardTitle className="text-xl text-gray-900">Arm Robot</CardTitle>
                 <CardDescription className="text-gray-600">
                   Autonomous robot with arms for soil sample collection and data transmission
                 </CardDescription>
               </CardHeader>
               <CardContent className="relative space-y-4">
                 <div className="aspect-video bg-gradient-to-br from-gray-100 to-gray-200 rounded-lg flex items-center justify-center">
-                  <img 
-                    src="https://images.unsplash.com/photo-1518495973542-4542c06a5843?w=400&h=200&fit=crop" 
+                  <Image
+                    src={Hero}
                     alt="Robotic arm system for agriculture"
                     className="w-full h-full object-cover rounded-lg"
                   />
@@ -188,8 +192,8 @@ export default function Home() {
               </CardHeader>
               <CardContent className="relative space-y-4">
                 <div className="aspect-video bg-gradient-to-br from-blue-100 to-blue-200 rounded-lg flex items-center justify-center">
-                  <img 
-                    src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=400&h=200&fit=crop" 
+                  <Image
+                    src={WT}
                     alt="Industrial tank system for water storage"
                     className="w-full h-full object-cover rounded-lg"
                   />
@@ -298,8 +302,8 @@ export default function Home() {
                     </div>
                   </div>
                   <div className="relative">
-                    <img 
-                      src="https://images.unsplash.com/photo-1518495973542-4542c06a5843?w=500&h=300&fit=crop" 
+                    <Image
+                      src={PH}
                       alt="pH sensor network in farm"
                       className="rounded-xl shadow-lg w-full"
                     />
@@ -332,7 +336,7 @@ export default function Home() {
               🎯 Smart Agriculture Benefits
             </Badge>
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900">
-              Why Choose SmartBell System?
+              Why Choose Power Green System?
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Transform your bell pepper cultivation with measurable improvements in yield, 
@@ -392,7 +396,7 @@ export default function Home() {
               ⚡ Automated Process
             </Badge>
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900">
-              How SmartBell Works
+              How System Works
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Our intelligent system follows a seamless automated process combining line-following 
