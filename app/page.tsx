@@ -1,9 +1,50 @@
+'use client';
 import { Button } from "@/components/ui/button";
+import React, { useState } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Bot, Droplets, Network, Leaf, BarChart3, Shield, ArrowRight, CheckCircle, CloudRain, Bell, Layers } from "lucide-react";
+import { Bot, Droplets, Network, Leaf, BarChart3, Shield, ArrowRight, CheckCircle, CloudRain, Bell, Layers, Zap, Radio, Minus, Plus } from "lucide-react";
 
 export default function Home() {
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
+
+  const toggleFaq = (index: number) => {
+    setOpenFaq(openFaq === index ? null : index);
+  };
+  const faqs = [
+    {
+      question: "How does the line-following robot with arms work for soil sampling?",
+      answer: "Our line-following robot autonomously navigates predefined paths in your farm using advanced sensors. The robotic arms collect soil samples at strategic locations and measure various soil metrics like moisture, nutrients, and temperature. All data is then transmitted to the cloud via our power-optimized LoRa gateway for analysis."
+    },
+    {
+      question: "What makes your LoRa gateway 15x more power-optimized?",
+      answer: "Our LoRa gateway uses advanced power management techniques including sleep mode optimization, efficient data compression, and smart transmission scheduling. This results in 15x better power efficiency compared to standard LoRa gateways, ensuring longer battery life and reduced maintenance costs."
+    },
+    {
+      question: "How many pH sensors are needed for effective monitoring?",
+      answer: "The number of pH sensors depends on your farm size and layout. Typically, we recommend one sensor per 50-100 square meters for optimal coverage. Our fixed pH sensors provide real-time monitoring and are strategically placed to ensure comprehensive soil pH tracking across your bell pepper cultivation area."
+    },
+    {
+      question: "What types of water are used in the multi-tank system?",
+      answer: "Our multi-tank system includes four types of water sources: rainwater collection tank, municipal water supply tank, acid solution tank, and basic solution tank. The system automatically mixes these to achieve the optimal pH level for bell pepper cultivation, typically between 6.0-6.8 pH."
+    },
+    {
+      question: "How quickly does the system respond to pH changes?",
+      answer: "Our system provides real-time monitoring with response times under 5 minutes. When pH sensors detect values outside the optimal range, the automated water mixing system immediately begins preparing and delivering pH-corrected water to maintain ideal growing conditions for your bell peppers."
+    },
+    {
+      question: "Is the system suitable for different farm sizes?",
+      answer: "Yes, our SmartBell system is scalable and can be customized for farms ranging from small-scale operations to large commercial bell pepper farms. The number of robots, pH sensors, and tank capacity can be adjusted based on your specific requirements and farm size."
+    },
+    {
+      question: "What maintenance is required for the system?",
+      answer: "The system requires minimal maintenance due to its power-optimized design. Regular tasks include cleaning pH sensors monthly, checking tank levels, and occasional robot calibration. The LoRa gateway and robotic systems are designed for autonomous operation with self-diagnostic capabilities."
+    },
+    {
+      question: "How does the system improve bell pepper quality and yield?",
+      answer: "By maintaining optimal soil pH levels and providing precise nutrient management, our system ensures bell peppers receive ideal growing conditions. This results in up to 40% higher yields, 85% better fruit quality, improved color consistency, and enhanced taste compared to traditional farming methods."
+    }
+  ];
   return (
     <div className="min-h-screen bg-gradient-to-br from-green-50 via-blue-50 to-white">
       {/* Navigation */}
@@ -12,11 +53,12 @@ export default function Home() {
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center space-x-2">
               <Leaf className="h-8 w-8 text-green-600" />
-              <span className="text-xl font-bold text-gray-900">SmartBell</span>
+              <span className="text-xl font-bold text-gray-900">Power Green</span>
             </div>
             <div className="hidden md:flex items-center space-x-8">
               <a href="#features" className="text-gray-600 hover:text-green-600 transition-colors">Features</a>
               <a href="#technology" className="text-gray-600 hover:text-green-600 transition-colors">Technology</a>
+              <a href="#faq" className="text-gray-600 hover:text-green-600 transition-colors">FAQ</a>
               <a href="#contact" className="text-gray-600 hover:text-green-600 transition-colors">Contact</a>
               <Button className="bg-green-600 hover:bg-green-700">Get Started</Button>
             </div>
@@ -38,11 +80,12 @@ export default function Home() {
                   Perfect Bell Pepper
                   <span className="text-green-600"> Cultivation</span>
                   <br />
-                  with AI & Robotics
+                  with Smart Robotics
                 </h1>
                 <p className="text-xl text-gray-600 leading-relaxed">
-                  Revolutionize your bell pepper farming with our intelligent pH monitoring robots, 
-                  automated water mixing systems, and powerful IoT gateway for optimal crop yields.
+                  Revolutionize your bell pepper farming with line-following robots for soil sampling, 
+                  fixed pH sensors, automated multi-tank water systems, and power-optimized LoRa gateway 
+                  for optimal crop yields.
                 </p>
               </div>
               <div className="flex flex-col sm:flex-row gap-4">
@@ -61,7 +104,7 @@ export default function Home() {
                 </div>
                 <div className="flex items-center space-x-2">
                   <CheckCircle className="h-4 w-4 text-green-500" />
-                  <span>Automated water mixing</span>
+                  <span>Multi-tank water system</span>
                 </div>
               </div>
             </div>
@@ -69,7 +112,7 @@ export default function Home() {
               <div className="absolute inset-0 bg-gradient-to-tr from-green-400 to-blue-500 rounded-2xl blur-3xl opacity-20" />
               <img 
                 src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=600&h=600&fit=crop" 
-                alt="Smart farming robot"
+                alt="Line-following robot with arms"
                 className="relative rounded-2xl shadow-2xl w-full max-w-lg mx-auto"
               />
             </div>
@@ -88,29 +131,29 @@ export default function Home() {
               Complete Smart Farming Ecosystem
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Our integrated system combines robotics, IoT, and data analytics to optimize every aspect 
-              of your bell pepper cultivation process.
+              Our integrated system combines line-following robots, fixed pH sensors, power-optimized 
+              LoRa gateway, and multi-tank water systems to optimize bell pepper cultivation.
             </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            {/* pH Monitoring Robot */}
+            {/* Line-Following Robot */}
             <Card className="relative overflow-hidden border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
               <div className="absolute inset-0 bg-gradient-to-br from-green-50 to-green-100" />
               <CardHeader className="relative">
                 <div className="w-12 h-12 bg-green-600 rounded-xl flex items-center justify-center mb-4">
                   <Bot className="h-6 w-6 text-white" />
                 </div>
-                <CardTitle className="text-xl text-gray-900">pH Monitoring Robot</CardTitle>
+                <CardTitle className="text-xl text-gray-900">Line-Following Robot</CardTitle>
                 <CardDescription className="text-gray-600">
-                  Autonomous soil sampling and pH measurement across your entire vineyard
+                  Autonomous robot with arms for soil sample collection and data transmission
                 </CardDescription>
               </CardHeader>
               <CardContent className="relative space-y-4">
                 <div className="aspect-video bg-gradient-to-br from-gray-100 to-gray-200 rounded-lg flex items-center justify-center">
                   <img 
-                    src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=400&h=200&fit=crop" 
-                    alt="pH monitoring robot"
+                    src="https://images.unsplash.com/photo-1518495973542-4542c06a5843?w=400&h=200&fit=crop" 
+                    alt="Robotic arm system for agriculture"
                     className="w-full h-full object-cover rounded-lg"
                   />
                 </div>
@@ -121,83 +164,148 @@ export default function Home() {
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-4 w-4 text-green-500" />
-                    <span>Real-time soil sample collection</span>
+                    <span>Robotic arms for soil sampling</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-4 w-4 text-green-500" />
-                    <span>Instant pH measurement & cloud sync</span>
+                    <span>Multiple metrics measurement & cloud sync</span>
                   </li>
                 </ul>
               </CardContent>
             </Card>
 
-            {/* Automated Water System */}
+            {/* Multi-Tank Water System */}
             <Card className="relative overflow-hidden border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
               <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-blue-100" />
               <CardHeader className="relative">
                 <div className="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center mb-4">
                   <Droplets className="h-6 w-6 text-white" />
                 </div>
-                <CardTitle className="text-xl text-gray-900">Smart Water Mixing</CardTitle>
+                <CardTitle className="text-xl text-gray-900">Multi-Tank Water System</CardTitle>
                 <CardDescription className="text-gray-600">
-                  Automated water mixture preparation based on real-time pH data
+                  Automated water mixture from rain water, supply water, acid and basic solutions
                 </CardDescription>
               </CardHeader>
               <CardContent className="relative space-y-4">
                 <div className="aspect-video bg-gradient-to-br from-blue-100 to-blue-200 rounded-lg flex items-center justify-center">
                   <img 
-                    src="https://images.unsplash.com/photo-1581090464777-f3220bbe1b8b?w=400&h=200&fit=crop" 
-                    alt="Smart water mixing system"
+                    src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=400&h=200&fit=crop" 
+                    alt="Industrial tank system for water storage"
                     className="w-full h-full object-cover rounded-lg"
                   />
                 </div>
                 <ul className="space-y-2 text-sm text-gray-600">
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-4 w-4 text-blue-500" />
-                    <span>Multiple tank management</span>
+                    <span>Rain water & supply water tanks</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-4 w-4 text-blue-500" />
-                    <span>pH-optimized water preparation</span>
+                    <span>Acid & basic solution tanks</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-4 w-4 text-blue-500" />
-                    <span>Automated distribution system</span>
+                    <span>pH-optimized water mixing</span>
                   </li>
                 </ul>
               </CardContent>
             </Card>
 
-            {/* Data Gateway */}
+            {/* Power-Optimized LoRa Gateway */}
             <Card className="relative overflow-hidden border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
               <div className="absolute inset-0 bg-gradient-to-br from-purple-50 to-purple-100" />
               <CardHeader className="relative">
                 <div className="w-12 h-12 bg-purple-600 rounded-xl flex items-center justify-center mb-4">
-                  <Network className="h-6 w-6 text-white" />
+                  <Radio className="h-6 w-6 text-white" />
                 </div>
-                <CardTitle className="text-xl text-gray-900">IoT Data Gateway</CardTitle>
+                <CardTitle className="text-xl text-gray-900">Power-Optimized LoRa Gateway</CardTitle>
                 <CardDescription className="text-gray-600">
-                  Powerful communication hub for optimized data center connectivity
+                  15x power-optimized communication hub for all data transmission
                 </CardDescription>
               </CardHeader>
               <CardContent className="relative space-y-4">
                 <div className="aspect-video bg-gradient-to-br from-purple-100 to-purple-200 rounded-lg flex items-center justify-center">
-                  <Network className="h-20 w-20 text-purple-400" />
+                  <div className="relative">
+                    <Radio className="h-20 w-20 text-purple-400" />
+                    <div className="absolute -top-2 -right-2">
+                      <Zap className="h-8 w-8 text-yellow-500 animate-pulse" />
+                    </div>
+                  </div>
                 </div>
                 <ul className="space-y-2 text-sm text-gray-600">
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-4 w-4 text-purple-500" />
-                    <span>Real-time data transmission</span>
+                    <span>15x power optimization</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-4 w-4 text-purple-500" />
-                    <span>Optimized cloud connectivity</span>
+                    <span>Long-range LoRa communication</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-4 w-4 text-purple-500" />
-                    <span>Secure data communication</span>
+                    <span>Secure data transmission</span>
                   </li>
                 </ul>
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* Fixed pH Sensors Section */}
+          <div className="mt-16">
+            <div className="text-center space-y-4 mb-12">
+              <Badge variant="outline" className="border-orange-200 text-orange-700 bg-orange-50">
+                📡 Fixed Monitoring Network
+              </Badge>
+              <h3 className="text-2xl lg:text-3xl font-bold text-gray-900">
+                Strategic pH Sensor Network
+              </h3>
+              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                Fixed pH sensors placed at strategic locations throughout the farm provide 
+                real-time soil pH monitoring for precise irrigation control.
+              </p>
+            </div>
+
+            <Card className="relative overflow-hidden border-0 shadow-lg bg-gradient-to-r from-orange-50 to-red-50">
+              <CardContent className="p-8">
+                <div className="grid md:grid-cols-2 gap-8 items-center">
+                  <div className="space-y-6">
+                    <div className="flex items-start space-x-3">
+                      <div className="w-8 h-8 bg-orange-500 rounded-full flex items-center justify-center">
+                        <BarChart3 className="h-4 w-4 text-white" />
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-gray-900">Real-time pH Monitoring</h4>
+                        <p className="text-gray-600">Continuous soil pH measurement at multiple farm locations</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start space-x-3">
+                      <div className="w-8 h-8 bg-orange-500 rounded-full flex items-center justify-center">
+                        <Network className="h-4 w-4 text-white" />
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-gray-900">LoRa Network Integration</h4>
+                        <p className="text-gray-600">Power-optimized data transmission to the cloud</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start space-x-3">
+                      <div className="w-8 h-8 bg-orange-500 rounded-full flex items-center justify-center">
+                        <Zap className="h-4 w-4 text-white" />
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-gray-900">Automated Response</h4>
+                        <p className="text-gray-600">Instant trigger of water mixing system based on pH data</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="relative">
+                    <img 
+                      src="https://images.unsplash.com/photo-1518495973542-4542c06a5843?w=500&h=300&fit=crop" 
+                      alt="pH sensor network in farm"
+                      className="rounded-xl shadow-lg w-full"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-orange-600/20 to-transparent rounded-xl" />
+                  </div>
+                </div>
               </CardContent>
             </Card>
           </div>
@@ -287,44 +395,36 @@ export default function Home() {
               How SmartBell Works
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Our intelligent system follows a seamless automated process to ensure 
-              your bell peppers receive the perfect growing conditions.
+              Our intelligent system follows a seamless automated process combining line-following 
+              robots, fixed sensors, and power-optimized communication for perfect bell pepper cultivation.
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-3 gap-8">
+          <div className="grid lg:grid-cols-4 gap-8">
             {/* Step 1 */}
-            <div className="relative">
+            <div className="relative h-full">
               <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-green-600 rounded-full flex items-center justify-center text-white font-bold text-lg z-10">
                 1
               </div>
-              <Card className="pt-8 border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-                <CardHeader className="text-center">
+              <Card className="pt-8 border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 h-full flex flex-col">
+                <CardHeader className="text-center flex-shrink-0">
                   <div className="w-20 h-20 bg-gradient-to-br from-green-100 to-green-200 rounded-full flex items-center justify-center mx-auto mb-4 animate-bounce">
                     <Bot className="h-10 w-10 text-green-600" />
                   </div>
-                  <CardTitle className="text-xl text-gray-900">Robot Sampling</CardTitle>
+                  <CardTitle className="text-lg text-gray-900">Robot Sampling</CardTitle>
                   <CardDescription className="text-gray-600">
-                    Our autonomous robot follows predefined paths through your vineyard, 
-                    collecting soil samples at strategic locations.
+                    Line-following robot with arms collects soil samples and measures various metrics
                   </CardDescription>
                 </CardHeader>
-                <CardContent className="space-y-3">
-                  <div className="aspect-video bg-gradient-to-br from-green-50 to-green-100 rounded-lg flex items-center justify-center">
-                    <img 
-                      src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=300&h=200&fit=crop" 
-                      alt="pH monitoring robot"
-                      className="w-full h-full object-cover rounded-lg"
-                    />
-                  </div>
+                <CardContent className="space-y-3 flex-grow">
                   <ul className="space-y-2 text-sm text-gray-600">
                     <li className="flex items-center space-x-2">
                       <CheckCircle className="h-4 w-4 text-green-500" />
-                      <span>GPS-guided navigation</span>
+                      <span>Line-following navigation</span>
                     </li>
                     <li className="flex items-center space-x-2">
                       <CheckCircle className="h-4 w-4 text-green-500" />
-                      <span>Automated soil collection</span>
+                      <span>Robotic arm soil collection</span>
                     </li>
                   </ul>
                 </CardContent>
@@ -332,33 +432,29 @@ export default function Home() {
             </div>
 
             {/* Step 2 */}
-            <div className="relative">
-              <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold text-lg z-10">
+            <div className="relative h-full">
+              <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-orange-600 rounded-full flex items-center justify-center text-white font-bold text-lg z-10">
                 2
               </div>
-              <Card className="pt-8 border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-                <CardHeader className="text-center">
-                  <div className="w-20 h-20 bg-gradient-to-br from-blue-100 to-blue-200 rounded-full flex items-center justify-center mx-auto mb-4 animate-pulse">
-                    <Network className="h-10 w-10 text-blue-600" />
+              <Card className="pt-8 border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 h-full flex flex-col">
+                <CardHeader className="text-center flex-shrink-0">
+                  <div className="w-20 h-20 bg-gradient-to-br from-orange-100 to-orange-200 rounded-full flex items-center justify-center mx-auto mb-4 animate-pulse">
+                    <BarChart3 className="h-10 w-10 text-orange-600" />
                   </div>
-                  <CardTitle className="text-xl text-gray-900">Data Processing</CardTitle>
+                  <CardTitle className="text-lg text-gray-900">pH Monitoring</CardTitle>
                   <CardDescription className="text-gray-600">
-                    Real-time pH analysis and data transmission through our optimized 
-                    IoT gateway to the cloud for instant processing.
+                    Fixed pH sensors across the farm provide real-time soil pH measurements
                   </CardDescription>
                 </CardHeader>
-                <CardContent className="space-y-3">
-                  <div className="aspect-video bg-gradient-to-br from-blue-50 to-blue-100 rounded-lg flex items-center justify-center">
-                    <Network className="h-24 w-24 text-blue-400 animate-pulse" />
-                  </div>
+                <CardContent className="space-y-3 flex-grow">
                   <ul className="space-y-2 text-sm text-gray-600">
                     <li className="flex items-center space-x-2">
-                      <CheckCircle className="h-4 w-4 text-blue-500" />
-                      <span>Instant pH measurement</span>
+                      <CheckCircle className="h-4 w-4 text-orange-500" />
+                      <span>Real-time pH sensing</span>
                     </li>
                     <li className="flex items-center space-x-2">
-                      <CheckCircle className="h-4 w-4 text-blue-500" />
-                      <span>Cloud data synchronization</span>
+                      <CheckCircle className="h-4 w-4 text-orange-500" />
+                      <span>Multiple sensor locations</span>
                     </li>
                   </ul>
                 </CardContent>
@@ -366,42 +462,123 @@ export default function Home() {
             </div>
 
             {/* Step 3 */}
-            <div className="relative">
-              <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-purple-600 rounded-full flex items-center justify-center text-white font-bold text-lg z-10">
+            <div className="relative h-full">
+              <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold text-lg z-10">
                 3
               </div>
-              <Card className="pt-8 border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-                <CardHeader className="text-center">
-                  <div className="w-20 h-20 bg-gradient-to-br from-purple-100 to-purple-200 rounded-full flex items-center justify-center mx-auto mb-4 animate-bounce delay-500">
-                    <Droplets className="h-10 w-10 text-purple-600" />
+              <Card className="pt-8 border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 h-full flex flex-col">
+                <CardHeader className="text-center flex-shrink-0">
+                  <div className="w-20 h-20 bg-gradient-to-br from-blue-100 to-blue-200 rounded-full flex items-center justify-center mx-auto mb-4 animate-pulse">
+                    <Radio className="h-10 w-10 text-blue-600" />
                   </div>
-                  <CardTitle className="text-xl text-gray-900">Automated Irrigation</CardTitle>
+                  <CardTitle className="text-lg text-gray-900">LoRa Gateway</CardTitle>
                   <CardDescription className="text-gray-600">
-                    Based on pH data, our system automatically prepares and distributes 
-                    the perfect water mixture for optimal bell pepper growth.
+                    Power-optimized LoRa gateway transmits all data to the cloud efficiently
                   </CardDescription>
                 </CardHeader>
-                <CardContent className="space-y-3">
-                  <div className="aspect-video bg-gradient-to-br from-purple-50 to-purple-100 rounded-lg flex items-center justify-center">
-                    <img 
-                      src="https://images.unsplash.com/photo-1581090464777-f3220bbe1b8b?w=300&h=200&fit=crop" 
-                      alt="Smart irrigation system"
-                      className="w-full h-full object-cover rounded-lg"
-                    />
-                  </div>
+                <CardContent className="space-y-3 flex-grow">
                   <ul className="space-y-2 text-sm text-gray-600">
                     <li className="flex items-center space-x-2">
-                      <CheckCircle className="h-4 w-4 text-purple-500" />
-                      <span>pH-optimized water mixing</span>
+                      <CheckCircle className="h-4 w-4 text-blue-500" />
+                      <span>15x power optimization</span>
                     </li>
                     <li className="flex items-center space-x-2">
-                      <CheckCircle className="h-4 w-4 text-purple-500" />
-                      <span>Targeted irrigation delivery</span>
+                      <CheckCircle className="h-4 w-4 text-blue-500" />
+                      <span>Cloud synchronization</span>
                     </li>
                   </ul>
                 </CardContent>
               </Card>
             </div>
+
+            {/* Step 4 */}
+            <div className="relative h-full">
+              <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-purple-600 rounded-full flex items-center justify-center text-white font-bold text-lg z-10">
+                4
+              </div>
+              <Card className="pt-8 border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 h-full flex flex-col">
+                <CardHeader className="text-center flex-shrink-0">
+                  <div className="w-20 h-20 bg-gradient-to-br from-purple-100 to-purple-200 rounded-full flex items-center justify-center mx-auto mb-4 animate-bounce delay-500">
+                    <Droplets className="h-10 w-10 text-purple-600" />
+                  </div>
+                  <CardTitle className="text-lg text-gray-900">Water Mixing</CardTitle>
+                  <CardDescription className="text-gray-600">
+                    Multi-tank system automatically creates pH-optimized water mixture
+                  </CardDescription>
+                </CardHeader>
+                <CardContent className="space-y-3 flex-grow">
+                  <ul className="space-y-2 text-sm text-gray-600">
+                    <li className="flex items-center space-x-2">
+                      <CheckCircle className="h-4 w-4 text-purple-500" />
+                      <span>4-tank mixing system</span>
+                    </li>
+                    <li className="flex items-center space-x-2">
+                      <CheckCircle className="h-4 w-4 text-purple-500" />
+                      <span>Automated delivery</span>
+                    </li>
+                  </ul>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section id="faq" className="py-20 bg-gradient-to-br from-gray-50 to-green-50">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center space-y-4 mb-16">
+            <Badge variant="outline" className="border-green-200 text-green-700 bg-green-50">
+              ❓ Frequently Asked Questions
+            </Badge>
+            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900">
+              Everything You Need to Know
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Get answers to common questions about our smart bell pepper cultivation system, 
+              from technical specifications to implementation details.
+            </p>
+          </div>
+
+          <div className="space-y-4">
+            {faqs.map((faq, index) => (
+              <Card key={index} className="border-0 shadow-lg hover:shadow-xl transition-all duration-300">
+                <CardHeader 
+                  className="cursor-pointer"
+                  onClick={() => toggleFaq(index)}
+                >
+                  <div className="flex items-center justify-between">
+                    <CardTitle className="text-lg text-gray-900 text-left">
+                      {faq.question}
+                    </CardTitle>
+                    <div className="flex-shrink-0 ml-4">
+                      {openFaq === index ? (
+                        <Minus className="h-5 w-5 text-green-600" />
+                      ) : (
+                        <Plus className="h-5 w-5 text-green-600" />
+                      )}
+                    </div>
+                  </div>
+                </CardHeader>
+                {openFaq === index && (
+                  <CardContent className="pt-0">
+                    <p className="text-gray-600 leading-relaxed">
+                      {faq.answer}
+                    </p>
+                  </CardContent>
+                )}
+              </Card>
+            ))}
+          </div>
+
+          <div className="text-center mt-12">
+            <p className="text-gray-600 mb-6">
+              Still have questions? We're here to help!
+            </p>
+            <Button className="bg-green-600 hover:bg-green-700">
+              Contact Our Experts
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </Button>
           </div>
         </div>
       </section>
@@ -412,35 +589,36 @@ export default function Home() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
               <Badge variant="outline" className="border-green-200 text-green-700 bg-green-50">
-                🌱 Better Bell Pepper Viticulture
+                🌱 Advanced Bell Pepper Cultivation
               </Badge>
               <h2 className="text-3xl lg:text-4xl font-bold text-gray-900">
-                Science-Driven Agriculture for Premium Bell Peppers
+                Precision Agriculture for Premium Bell Peppers
               </h2>
               <p className="text-lg text-gray-600">
-                Our system continuously monitors and optimizes soil pH levels, ensuring your bell peppers 
-                receive the perfect growing conditions for maximum yield and quality.
+                Our system combines line-following robots, fixed pH sensors, power-optimized LoRa 
+                communication, and multi-tank water systems to maintain perfect soil conditions 
+                for exceptional bell pepper quality.
               </p>
               <div className="space-y-4">
                 <div className="flex items-start space-x-3">
                   <BarChart3 className="h-6 w-6 text-green-600 mt-1" />
                   <div>
-                    <h3 className="font-semibold text-gray-900">Real-time Analytics</h3>
-                    <p className="text-gray-600">Monitor pH levels, soil moisture, and growth metrics in real-time</p>
+                    <h3 className="font-semibold text-gray-900">Real-time Monitoring Network</h3>
+                    <p className="text-gray-600">Fixed pH sensors and robotic sampling provide comprehensive soil data</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-3">
-                  <Shield className="h-6 w-6 text-blue-600 mt-1" />
+                  <Zap className="h-6 w-6 text-blue-600 mt-1" />
                   <div>
-                    <h3 className="font-semibold text-gray-900">Precision Control</h3>
-                    <p className="text-gray-600">Automated systems ensure optimal growing conditions 24/7</p>
+                    <h3 className="font-semibold text-gray-900">Power-Optimized Communication</h3>
+                    <p className="text-gray-600">15x power-optimized LoRa gateway ensures reliable data transmission</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-3">
-                  <Leaf className="h-6 w-6 text-purple-600 mt-1" />
+                  <Droplets className="h-6 w-6 text-purple-600 mt-1" />
                   <div>
-                    <h3 className="font-semibold text-gray-900">Sustainable Farming</h3>
-                    <p className="text-gray-600">Reduce waste and optimize resource usage for eco-friendly cultivation</p>
+                    <h3 className="font-semibold text-gray-900">Multi-Tank Water System</h3>
+                    <p className="text-gray-600">Rain water, supply water, acid & basic solutions for perfect pH balance</p>
                   </div>
                 </div>
               </div>
@@ -471,7 +649,7 @@ export default function Home() {
               Get Started Today
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
-            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10 text-lg px-8">
+            <Button size="lg" variant="outline" className="border-white text-black hover:bg-white/10 text-lg px-8">
               Schedule Demo
             </Button>
           </div>
@@ -483,9 +661,13 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-4 gap-8">
             <div className="space-y-4">
-              <div className="flex items-center space-x-2">
-                <Leaf className="h-6 w-6 text-green-500" />
-                <span className="text-xl font-bold text-white">SmartBell</span>
+              <div className="flex items-center space-x-3">
+                <img 
+                  src="/lovable-uploads/a4319558-a12d-46b1-9d97-8d34bac91ce9.png" 
+                  alt="Power Green Logo"
+                  className="h-8 w-8"
+                />
+                <span className="text-xl font-bold text-white">power green</span>
               </div>
               <p className="text-gray-400">
                 Revolutionizing bell pepper cultivation through intelligent automation and IoT technology.
@@ -494,7 +676,8 @@ export default function Home() {
             <div>
               <h3 className="text-white font-semibold mb-4">Products</h3>
               <ul className="space-y-2 text-gray-400">
-                <li><a href="#" className="hover:text-green-400 transition-colors">pH Monitoring Robot</a></li>
+                <li><a href="#" className="hover:text-green-400 transition-colors">Data Collecting Robot</a></li>
+                <li><a href="#" className="hover:text-green-400 transition-colors">pH Monitoring Sensors</a></li>
                 <li><a href="#" className="hover:text-green-400 transition-colors">Water Mixing System</a></li>
                 <li><a href="#" className="hover:text-green-400 transition-colors">IoT Gateway</a></li>
               </ul>
@@ -517,10 +700,11 @@ export default function Home() {
             </div>
           </div>
           <div className="border-t border-gray-700 mt-12 pt-8 text-center text-gray-400">
-            <p>&copy; 2024 SmartBell. All rights reserved.</p>
+            <p>&copy; 2024 power green. All rights reserved.</p>
           </div>
         </div>
       </footer>
     </div>
   );
-}
+};
+
