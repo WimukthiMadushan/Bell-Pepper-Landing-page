@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import React, { useState } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Bot, Droplets, Network, Leaf, BarChart3, ArrowRight, CheckCircle, CloudRain, Bell, Layers, Zap, Radio, Minus, Plus } from "lucide-react";
+import { Bot, Droplets, Network, BarChart3, ArrowRight, CheckCircle, CloudRain, Bell, Layers, Zap, Radio, Minus, Plus } from "lucide-react";
 import Hero from "./Images/Hero.jpg"
 import WT from "./Images/WaterTank.jpg"
 import PH from "./Images/PH.jpg"
