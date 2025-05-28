@@ -7,6 +7,7 @@ import { Bot, Droplets, Network, Leaf, BarChart3, ArrowRight, CheckCircle, Cloud
 import Hero from "./Images/Hero.jpg"
 import WT from "./Images/WaterTank.jpg"
 import PH from "./Images/PH.jpg"
+import Logo from "./Images/Logo.png";
 import Image from "next/image";
 
 export default function Home() {
@@ -56,7 +57,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center space-x-2 cursor-pointer">
-              <Leaf className="h-8 w-8 text-green-600" />
+              <Image src={Logo} className="h-12 w-12" alt="logo"/>
               <span className="text-xl font-bold text-gray-900">Power Green</span>
             </div>
             <div className="hidden md:flex items-center space-x-8">
@@ -666,11 +667,7 @@ export default function Home() {
           <div className="grid md:grid-cols-4 gap-8">
             <div className="space-y-4">
               <div className="flex items-center space-x-3">
-                <img 
-                  src="/lovable-uploads/a4319558-a12d-46b1-9d97-8d34bac91ce9.png" 
-                  alt="Power Green Logo"
-                  className="h-8 w-8"
-                />
+              <Image src={Logo} className="h-12 w-12" alt="logo"/>
                 <span className="text-xl font-bold text-white">power green</span>
               </div>
               <p className="text-gray-400">
