@@ -8,6 +8,12 @@ import Hero from "./Images/Hero.jpg"
 import WT from "./Images/WaterTank.jpg"
 import PH from "./Images/PH.jpg"
 import Logo from "./Images/Logo.png";
+import Kavindya from "./Images/Kavindya.png"
+import Basnayake from "./Images/Basnayake.png"
+import Kapila from "./Images/Kapila.png"
+import Karunarathne from "./Images/Karunarathne.png"
+import Yatawarege from "./Images/Yatawarage.png"
+import Surjani from "./Images/Surjani.png"
 import Image from "next/image";
 
 export default function Home() {
@@ -83,7 +89,8 @@ export default function Home() {
               <a href="#features" className="text-gray-600 hover:text-green-600 transition-colors">Features</a>
               <a href="#technology" className="text-gray-600 hover:text-green-600 transition-colors">Technology</a>
               <a href="#faq" className="text-gray-600 hover:text-green-600 transition-colors">FAQ</a>
-              <a href="#contact" className="text-gray-600 hover:text-green-600 transition-colors">Contact</a>
+              <a href="#about-us" className="text-gray-600 hover:text-green-600 transition-colors">About Us</a>
+              <a href="#contact-us" className="text-gray-600 hover:text-green-600 transition-colors">Contact</a>
               <Button className="bg-green-600 hover:bg-green-700">Get Started</Button>
             </div>
           </div>
@@ -659,6 +666,68 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="py-20 bg-white" id="about-us">
+  <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <h2 className="text-4xl font-bold text-gray-800 mb-16">About Us</h2>
+
+    {/* Supervisors */}
+    <div className="grid md:grid-cols-2 gap-12 mb-20">
+      <div className="bg-gray-100 p-6 rounded-xl shadow-md hover:shadow-lg transition-all duration-300">
+        <div className="flex flex-col items-center space-y-4">
+          <Image src={Kapila} alt="Dr. Kapila Dissanayaka" className="rounded-full w-32 h-32 object-cover shadow" />
+          <h3 className="text-xl font-semibold text-gray-800">Dr. Kapila Dissanayaka</h3>
+          <p className="text-gray-600 text-sm leading-relaxed">
+            Project Supervisor<br/>
+            Senior Lecturer<br/>
+            Faculty of Computing<br/>
+            Computer Science
+          </p>
+        </div>
+      </div>
+      <div className="bg-gray-100 p-6 rounded-xl shadow-md hover:shadow-lg transition-all duration-300">
+        <div className="flex flex-col items-center space-y-4">
+          <Image src={Surjani} alt="Ms. Suranjini Silva" className="rounded-full w-32 h-32 object-cover shadow" />
+          <h3 className="text-xl font-semibold text-gray-800">Ms. Suranjini Silva</h3>
+          <p className="text-gray-600 text-sm leading-relaxed">
+            Project Co-Supervisor<br/>
+            Senior Lecturer<br/>
+            Faculty of Computing<br/>
+            Computer Systems Engineering
+          </p>
+        </div>
+      </div>
+    </div>
+
+    {/* Team Members */}
+    <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-10">
+      <div className="bg-gray-50 p-4 rounded-lg shadow hover:shadow-md transition-all duration-300">
+        <Image src={Yatawarege} alt="Yatawarage U.S" className="mx-auto rounded-full w-24 h-24 object-cover mb-3 shadow" />
+        <h4 className="text-lg font-medium text-gray-800">Yatawarage U.S</h4>
+        <p className="text-gray-600 text-sm">IT21083532<br/>(Leader)</p>
+      </div>
+      <div className="bg-gray-50 p-4 rounded-lg shadow hover:shadow-md transition-all duration-300">
+        <Image src={Kavindya} alt="Kavindya J.A.G" className="mx-auto rounded-full w-24 h-24 object-cover mb-3 shadow" />
+        <h4 className="text-lg font-medium text-gray-800">Kavindya J.A.G</h4>
+        <p className="text-gray-600 text-sm">IT21928192</p>
+      </div>
+      <div className="bg-gray-50 p-4 rounded-lg shadow hover:shadow-md transition-all duration-300">
+        <Image src={Karunarathne} alt="Karunarathe U.G.O.S" className="mx-auto rounded-full w-24 h-24 object-cover mb-3 shadow" />
+        <h4 className="text-lg font-medium text-gray-800">Karunarathe U.G.O.S</h4>
+        <p className="text-gray-600 text-sm">IT21108372</p>
+      </div>
+      <div className="bg-gray-50 p-4 rounded-lg shadow hover:shadow-md transition-all duration-300">
+        <Image src={Basnayake} alt="Basnayake B.M.I.R.B" className="mx-auto rounded-full w-24 h-24 object-cover mb-3 shadow" />
+        <h4 className="text-lg font-medium text-gray-800">Basnayake B.M.I.R.B</h4>
+        <p className="text-gray-600 text-sm">IT21306372</p>
+      </div>
+    </div>
+  </div>
+      </section>
+      
+
+
+
+
       {/* CTA Section */}
       <section className="py-20 bg-gradient-to-r from-green-600 to-blue-600">
         <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
@@ -679,6 +748,62 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+
+{/* COntact Us */}
+      <section className="py-20 bg-gray-50" id="contact-us">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 className="text-4xl font-bold text-center text-gray-800 mb-16">Contact Us</h2>
+
+    <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-10">
+      
+            {/* Member Card */}
+            <div className="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition duration-300 text-center">
+        <Image src={Kapila} alt="Dr. Kapila Dissanayaka" className="w-24 h-24 mx-auto rounded-full object-cover shadow mb-4" />
+        <h3 className="text-lg font-semibold text-gray-800">Dr. Kapila Dissanayaka</h3>
+        <p className="text-sm text-gray-600 mb-2">Supervisor</p>
+        <a href="mailto:kapila@example.com" className="text-blue-600 hover:underline text-sm">kapila.d@sliit.lk</a>
+      </div>
+
+      <div className="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition duration-300 text-center">
+        <Image src={Surjani} alt="Ms. Suranjini Silva" className="w-24 h-24 mx-auto rounded-full object-cover shadow mb-4" />
+        <h3 className="text-lg font-semibold text-gray-800">Ms. Suranjini Silva</h3>
+        <p className="text-sm text-gray-600 mb-2">Co-Supervisor</p>
+        <a href="mailto:suranjini@example.com" className="text-blue-600 hover:underline text-sm">suranjini.s@sliit.lk</a>
+            </div>
+            
+      <div className="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition duration-300 text-center">
+        <Image src={Yatawarege} alt="Yatawarage U.S" className="w-24 h-24 mx-auto rounded-full object-cover shadow mb-4" />
+        <h3 className="text-lg font-semibold text-gray-800">Yatawarage U.S</h3>
+              <p className="text-sm text-gray-600 mb-2">IT21083532</p>
+        <a href="mailto:yatawarage@example.com" className="text-blue-600 hover:underline text-sm">it210835322@my.sliit.lk</a>
+      </div>
+
+      <div className="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition duration-300 text-center">
+        <Image src={Kavindya} alt="Kavindya J.A.G" className="w-24 h-24 mx-auto rounded-full object-cover shadow mb-4" />
+        <h3 className="text-lg font-semibold text-gray-800">Kavindya J.A.G</h3>
+        <p className="text-sm text-gray-600 mb-2">IT21928192</p>
+        <a href="mailto:kavindya@example.com" className="text-blue-600 hover:underline text-sm"> it21928192@my.sliit.lk</a>
+      </div>
+
+      <div className="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition duration-300 text-center">
+        <Image src={Karunarathne} alt="Karunarathe U.G.O.S" className="w-24 h-24 mx-auto rounded-full object-cover shadow mb-4" />
+        <h3 className="text-lg font-semibold text-gray-800">Karunarathe U.G.O.S</h3>
+        <p className="text-sm text-gray-600 mb-2">IT21108372</p>
+        <a href="mailto:karunaratne@example.com" className="text-blue-600 hover:underline text-sm">it21108372@my.sliit.lk</a>
+      </div>
+
+      <div className="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition duration-300 text-center">
+        <Image src={Basnayake} alt="Basnayake B.M.I.R.B" className="w-24 h-24 mx-auto rounded-full object-cover shadow mb-4" />
+        <h3 className="text-lg font-semibold text-gray-800">Basnayake B.M.I.R.B</h3>
+        <p className="text-sm text-gray-600 mb-2">IT21306372</p>
+        <a href="mailto:basnayake@example.com" className="text-blue-600 hover:underline text-sm">it21306372@my.sliit.lk</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 
       {/* Footer */}
       <footer className="bg-gray-900 text-gray-300 py-12">
