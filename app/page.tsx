@@ -702,22 +702,46 @@ export default function Home() {
     <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-10">
       <div className="bg-gray-50 p-4 rounded-lg shadow hover:shadow-md transition-all duration-300">
         <Image src={Yatawarege} alt="Yatawarage U.S" className="mx-auto rounded-full w-24 h-24 object-cover mb-3 shadow" />
-        <h4 className="text-lg font-medium text-gray-800">Yatawarage U.S</h4>
+              <h4 className="text-lg font-medium text-gray-800">Yatawarage U.S</h4>
+              <p className="text-gray-600 text-sm leading-relaxed">
+            Project Co-Supervisor<br/>
+            Senior Lecturer<br/>
+            Faculty of Computing<br/>
+            Computer Systems Engineering
+          </p>
         <p className="text-gray-600 text-sm">IT21083532<br/>(Leader)</p>
       </div>
       <div className="bg-gray-50 p-4 rounded-lg shadow hover:shadow-md transition-all duration-300">
         <Image src={Kavindya} alt="Kavindya J.A.G" className="mx-auto rounded-full w-24 h-24 object-cover mb-3 shadow" />
-        <h4 className="text-lg font-medium text-gray-800">Kavindya J.A.G</h4>
+              <h4 className="text-lg font-medium text-gray-800">Kavindya J.A.G</h4>
+              <p className="text-gray-600 text-sm leading-relaxed">
+            Project Co-Supervisor<br/>
+            Senior Lecturer<br/>
+            Faculty of Computing<br/>
+            Computer Systems Engineering
+          </p>
         <p className="text-gray-600 text-sm">IT21928192</p>
       </div>
       <div className="bg-gray-50 p-4 rounded-lg shadow hover:shadow-md transition-all duration-300">
         <Image src={Karunarathne} alt="Karunarathe U.G.O.S" className="mx-auto rounded-full w-24 h-24 object-cover mb-3 shadow" />
-        <h4 className="text-lg font-medium text-gray-800">Karunarathe U.G.O.S</h4>
+              <h4 className="text-lg font-medium text-gray-800">Karunarathe U.G.O.S</h4>
+              <p className="text-gray-600 text-sm leading-relaxed">
+            Project Co-Supervisor<br/>
+            Senior Lecturer<br/>
+            Faculty of Computing<br/>
+            Computer Systems Engineering
+          </p>
         <p className="text-gray-600 text-sm">IT21108372</p>
       </div>
       <div className="bg-gray-50 p-4 rounded-lg shadow hover:shadow-md transition-all duration-300">
         <Image src={Basnayake} alt="Basnayake B.M.I.R.B" className="mx-auto rounded-full w-24 h-24 object-cover mb-3 shadow" />
-        <h4 className="text-lg font-medium text-gray-800">Basnayake B.M.I.R.B</h4>
+              <h4 className="text-lg font-medium text-gray-800">Basnayake B.M.I.R.B</h4>
+              <p className="text-gray-600 text-sm leading-relaxed">
+            Project Co-Supervisor<br/>
+            Senior Lecturer<br/>
+            Faculty of Computing<br/>
+            Computer Systems Engineering
+          </p>
         <p className="text-gray-600 text-sm">IT21306372</p>
       </div>
     </div>
