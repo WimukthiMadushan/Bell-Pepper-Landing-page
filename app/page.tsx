@@ -50,6 +50,25 @@ export default function Home() {
       answer: "By maintaining optimal soil pH levels and providing precise nutrient management, our system ensures bell peppers receive ideal growing conditions. This results in up to 40% higher yields, 85% better fruit quality, improved color consistency, and enhanced taste compared to traditional farming methods."
     }
   ];
+  const downloadPDFs = () => {
+    const files = [
+      "/PDF/Bell_Pepper_Robotic_Research_Paper.pdf",
+      "/PDF/Energy_Efficient_IoT_Green_House_Solution_for_Real_Time_pH_Control.pdf",
+      "/PDF/Final_Report.pdf",
+      "/PDF/PP2_Presentation.pdfs",
+    ];
+  
+    files.forEach((file, index) => {
+      setTimeout(() => {
+        const link = document.createElement("a");
+        link.href = file;
+        link.download = file.split("/").pop() || "document.pdf";
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      }, index * 300); 
+    });
+  };
   return (
     <div className="min-h-screen bg-gradient-to-br from-green-50 via-blue-50 to-white">
       {/* Navigation */}
@@ -94,8 +113,8 @@ export default function Home() {
                 </p>
               </div>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" className="bg-green-600 hover:bg-green-700 text-lg px-8 cursor-pointer">
-                  Start Growing Smarter
+                <Button size="lg" className="bg-green-600 hover:bg-green-700 text-lg px-8 cursor-pointer" onClick={downloadPDFs}>
+                  Download Documentations
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
                 <Button size="lg" variant="outline" className="text-lg px-8 border-gray-300 hover:border-green-300 cursor-pointer">
