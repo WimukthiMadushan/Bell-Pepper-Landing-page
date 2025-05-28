@@ -704,8 +704,6 @@ export default function Home() {
         <Image src={Yatawarege} alt="Yatawarage U.S" className="mx-auto rounded-full w-24 h-24 object-cover mb-3 shadow" />
               <h4 className="text-lg font-medium text-gray-800">Yatawarage U.S</h4>
               <p className="text-gray-600 text-sm leading-relaxed">
-            Project Co-Supervisor<br/>
-            Senior Lecturer<br/>
             Faculty of Computing<br/>
             Computer Systems Engineering
           </p>
@@ -715,8 +713,6 @@ export default function Home() {
         <Image src={Kavindya} alt="Kavindya J.A.G" className="mx-auto rounded-full w-24 h-24 object-cover mb-3 shadow" />
               <h4 className="text-lg font-medium text-gray-800">Kavindya J.A.G</h4>
               <p className="text-gray-600 text-sm leading-relaxed">
-            Project Co-Supervisor<br/>
-            Senior Lecturer<br/>
             Faculty of Computing<br/>
             Computer Systems Engineering
           </p>
@@ -726,8 +722,6 @@ export default function Home() {
         <Image src={Karunarathne} alt="Karunarathe U.G.O.S" className="mx-auto rounded-full w-24 h-24 object-cover mb-3 shadow" />
               <h4 className="text-lg font-medium text-gray-800">Karunarathe U.G.O.S</h4>
               <p className="text-gray-600 text-sm leading-relaxed">
-            Project Co-Supervisor<br/>
-            Senior Lecturer<br/>
             Faculty of Computing<br/>
             Computer Systems Engineering
           </p>
@@ -737,8 +731,6 @@ export default function Home() {
         <Image src={Basnayake} alt="Basnayake B.M.I.R.B" className="mx-auto rounded-full w-24 h-24 object-cover mb-3 shadow" />
               <h4 className="text-lg font-medium text-gray-800">Basnayake B.M.I.R.B</h4>
               <p className="text-gray-600 text-sm leading-relaxed">
-            Project Co-Supervisor<br/>
-            Senior Lecturer<br/>
             Faculty of Computing<br/>
             Computer Systems Engineering
           </p>
